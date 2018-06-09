@@ -1,5 +1,16 @@
 $(function (){
 
+
+/* 
+Zahid Guerrero Sandoval
+Desarrollo Web
+Next-U
+
+CONTROLA LAS BUSQUEDAS Y MUESTRA LOS DATOS EN EL ARCHIVO HTML
+
+ */
+
+
     /*
   Creación de una función personalizada para jQuery que detecta cuando se detiene el scroll en la página
 */

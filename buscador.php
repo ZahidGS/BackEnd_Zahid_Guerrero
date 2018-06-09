@@ -1,5 +1,14 @@
 <?php
 
+/* 
+Zahid Guerrero Sandoval
+Desarrollo Web
+Next-U
+
+CREA LOS FILTROS PARA REALIZAR LA BUSQUEDA DE DATOS
+
+ */
+
 //INCLUYE A ARCHIVO DATOS.PHP
     require('datos.php');
 
@@ -10,24 +19,24 @@ $desde = isset($_POST['selectDesde']) ? $_POST['selectDesde'] : '0';
 $hasta = isset($_POST['selectHasta']) ? $_POST['selectHasta'] : '100000';
 
 //METE TODOS LOS REGISTROS A LA VARIABLE ITEMS
- $items = getData('data-1.json');
+$items = getData('data-1.json');
 
- $filtro = [];
+$filtro = [];
 
 $cuenta =0;
 
 //INICIA EL CICLO DE BUSQUEDA
 for($i = 0; $i < count($items); $i++){
     $item = $items[$i];
-    $ci = $item['Ciudad'];
-    $ti = $item['Tipo'];    
+    $ciudadi = $item['Ciudad'];
+    $tipoi = $item['Tipo'];    
     $precio = floatval(preg_replace('/[^\d\.]+/', '', $item['Precio']));
 
     //SELECCIONA LA BUSQUEDA Y REGRESA LOS DATOS EN UN ARRAY JSON
     if ($ciudad !=='' and $tipo !==''){
 
 
-        if($ciudad===$ci and $tipo===$ti and $precio>= $desde and $precio<= $hasta){
+        if($ciudad===$ciudadi and $tipo===$tipoi and $precio>= $desde and $precio<= $hasta){
             $filtro[$cuenta] = array(
                 "Id" => $item["Id"],
                 "Direccion" => $item["Direccion"],
@@ -40,7 +49,7 @@ for($i = 0; $i < count($items); $i++){
              $cuenta +=1;
         }        
     }elseif ($ciudad !==''){
-        if($ciudad===$ci and $precio>= $desde and $precio<= $hasta){
+        if($ciudad===$ciudadi and $precio>= $desde and $precio<= $hasta){
             $filtro[$cuenta] = array(
                 "Id" => $item["Id"],
                 "Direccion" => $item["Direccion"],
@@ -53,7 +62,7 @@ for($i = 0; $i < count($items); $i++){
              $cuenta +=1;
         }
     }elseif ($tipo !== ''){
-        if($tipo===$ti and $precio>= $desde and $precio<= $hasta){
+        if($tipo===$tipoi and $precio>= $desde and $precio<= $hasta){
             $filtro[$cuenta] = array(
                 "Id" => $item["Id"],
                 "Direccion" => $item["Direccion"],

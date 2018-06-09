@@ -1,6 +1,16 @@
 <?php
 
-//REGRESA LOS DATOS PARA LAS BUSQUEDAS POR CIUDAD, TIPO O TODOS
+
+/* 
+Zahid Guerrero Sandoval
+Desarrollo Web
+Next-U
+
+CREA ARRAY Y REGRESA LOS DATOS POR CIUDAD, TIPO O TODOS
+
+*/
+
+
 
 //CLASIFICA LA BUSQUEDA POR CIUDAD, TIPOS O TODOS
 if( isset($_POST['tipo']) ) {
@@ -17,7 +27,7 @@ if( isset($_POST['tipo']) ) {
             break;
     }
 } else {
-    die("Solicitud no válida.");
+    die("No se envió ningún TIPO de búsqueda.");
 }
 
 
